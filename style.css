@@ -33,10 +33,10 @@ a { color: var(--oxblood); }
 .site-header {
   background: var(--black);
   text-align: center;
-  padding: 24px 20px 0;
+  padding: 12px 20px;
 }
 .site-header .logo {
-  width: min(300px, 70vw);
+  width: 110px;
   margin: 0 auto;
 }
 .site-nav {
@@ -87,7 +87,7 @@ h3 { font-size: 1.2rem; }
 .register { list-style: none; padding: 0; margin: 32px 0 0; }
 .member {
   display: grid;
-  grid-template-columns: 48px 140px 1fr;
+  grid-template-columns: 48px 1fr;
   gap: 20px;
   align-items: start;
   padding: 24px 0;
@@ -225,7 +225,5 @@ footer a { color: var(--gold-light); }
 
 @media (max-width: 560px) {
   .member { grid-template-columns: 36px 1fr; }
-  .member .portrait { grid-column: 2; max-width: 180px; }
-  .member .details { grid-column: 2; }
   .archives { grid-template-columns: 1fr; }
 }
