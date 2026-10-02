@@ -227,3 +227,56 @@ footer a { color: var(--gold-light); }
   .member { grid-template-columns: 36px 1fr; }
   .archives { grid-template-columns: 1fr; }
 }
+
+/* Password gate */
+html.gated body > *:not(.gate) { display: none !important; }
+.gate {
+  min-height: 100vh;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  text-align: center;
+}
+.gate-logo { width: 140px; margin: 0 auto 28px; }
+.gate-form {
+  width: 100%;
+  max-width: 380px;
+  background: var(--vellum);
+  padding: 32px 24px;
+  border-top: 3px solid var(--gold-light);
+}
+.gate-form h1 { margin-bottom: 8px; }
+.gate-form p { margin: 0 0 20px; }
+.gate-form input {
+  width: 100%;
+  font: inherit;
+  padding: 10px 12px;
+  border: 1px solid var(--ink);
+  background: #FFFFFF;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.gate-form button {
+  width: 100%;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 24px;
+  background: var(--gold-light);
+  color: var(--black);
+  border: 0;
+  cursor: pointer;
+}
+.gate-form button:hover { background: var(--gold); }
+.gate-error { color: var(--oxblood); margin: 14px 0 0 !important; }
+.gate-back { display: inline-block; margin-top: 18px; }
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
