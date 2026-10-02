@@ -161,6 +161,24 @@ h3 { font-size: 1.2rem; }
 .archive-link:hover { background: #1F1608; }
 .archive-link strong { display: block; font-family: var(--display); font-size: 1.25rem; color: #FFFFFF; margin-bottom: 4px; }
 .archive-link span { color: var(--vellum); }
+.feature-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 28px;
+  text-align: center;
+}
+.feature-link strong { font-size: clamp(1.4rem, 3.5vw, 1.8rem); margin-bottom: 10px; }
+.feature-link span { font-size: 1.2rem; margin-bottom: 18px; }
+.archive-link .feature-button {
+  margin: auto 0 0;
+  background: var(--gold-light);
+  color: var(--black);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 24px;
+}
 
 /* W Bildings ledger */
 .bildings { list-style: none; padding: 0; margin: 32px 0 0; counter-reset: bilding; }
