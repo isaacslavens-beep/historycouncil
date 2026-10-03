@@ -3,6 +3,10 @@
   // SHA-256 of the shared password
   var HASH = "fe3fb7f9c6ed9a291fab2a00863895079cdbf21082aad497a728c07e23543961";
 
+  // Unlocking sets a session cookie, so other pages stay unlocked until the browser closes
+  var COOKIE = "hc_unlocked";
+  if (document.cookie.split("; ").indexOf(COOKIE + "=" + HASH) !== -1) return;
+
   document.documentElement.classList.add("gated");
 
   function sha256(text) {
@@ -46,6 +50,7 @@
       e.preventDefault();
       sha256(input.value).then(function (hash) {
         if (hash === HASH) {
+          document.cookie = COOKIE + "=" + HASH + "; path=/; SameSite=Lax" + (location.protocol === "https:" ? "; Secure" : "");
           gate.remove();
           document.documentElement.classList.remove("gated");
         } else {
