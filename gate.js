@@ -27,7 +27,7 @@
     gate.innerHTML =
       (inline ? '' : '<a href="index.html"><img class="gate-logo" src="history-council-logo.png" alt="History Council crest"></a>') +
       '<form class="gate-form">' +
-        (inline ? '<h2>Members Only</h2>' : '<h1>Members Only</h1>') +
+        (inline ? '<h2>Wii Sports Members Only</h2>' : '<h1>Wii Sports Members Only</h1>') +
         '<p>Enter the Council password to continue.</p>' +
         '<label class="visually-hidden" for="gate-password">Password</label>' +
         '<input id="gate-password" type="password" autocomplete="current-password" required' + (inline ? '' : ' autofocus') + '>' +
