@@ -14,20 +14,29 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    // Pages can leave some content visible above the prompt by marking it data-gate-public
+    var publicEls = document.querySelectorAll("main [data-gate-public]");
+    var inline = publicEls.length > 0;
+
     var gate = document.createElement("div");
-    gate.className = "gate";
+    gate.className = inline ? "gate gate-inline" : "gate";
     gate.innerHTML =
-      '<a href="index.html"><img class="gate-logo" src="history-council-logo.png" alt="History Council crest"></a>' +
+      (inline ? '' : '<a href="index.html"><img class="gate-logo" src="history-council-logo.png" alt="History Council crest"></a>') +
       '<form class="gate-form">' +
-        '<h1>Members Only</h1>' +
+        (inline ? '<h2>Members Only</h2>' : '<h1>Members Only</h1>') +
         '<p>Enter the Council password to continue.</p>' +
         '<label class="visually-hidden" for="gate-password">Password</label>' +
-        '<input id="gate-password" type="password" autocomplete="current-password" required autofocus>' +
+        '<input id="gate-password" type="password" autocomplete="current-password" required' + (inline ? '' : ' autofocus') + '>' +
         '<button type="submit">Enter</button>' +
         '<p class="gate-error" role="alert" hidden>Incorrect password.</p>' +
-        '<a class="gate-back" href="index.html">Back to home</a>' +
+        (inline ? '' : '<a class="gate-back" href="index.html">Back to home</a>') +
       '</form>';
-    document.body.appendChild(gate);
+
+    if (inline) {
+      publicEls[publicEls.length - 1].after(gate);
+    } else {
+      document.body.appendChild(gate);
+    }
 
     var form = gate.querySelector("form");
     var input = gate.querySelector("input");

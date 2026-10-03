@@ -249,7 +249,9 @@ footer a { color: var(--gold-light); }
 }
 
 /* Password gate */
-html.gated body > *:not(.gate) { display: none !important; }
+html.gated body > *:not(.gate):not(.site-header):not(main) { display: none !important; }
+html.gated body:not(:has([data-gate-public])) > :is(.site-header, main) { display: none !important; }
+html.gated main > *:not(.gate):not([data-gate-public]) { display: none !important; }
 .gate {
   min-height: 100vh;
   background: var(--black);
@@ -260,6 +262,20 @@ html.gated body > *:not(.gate) { display: none !important; }
   padding: 40px 16px;
   text-align: center;
 }
+.gate-inline {
+  min-height: 0;
+  background: none;
+  padding: 48px 0 0;
+  margin-top: 64px;
+  border-top: 1px solid var(--rule);
+}
+.gate-inline .gate-form {
+  background: var(--black);
+  color: var(--vellum);
+  border: 1px solid var(--gold);
+  border-top-width: 3px;
+}
+.gate-inline .gate-form h2 { color: #FFFFFF; margin-bottom: 8px; }
 .gate-logo { width: 140px; margin: 0 auto 28px; }
 .gate-form {
   width: 100%;
